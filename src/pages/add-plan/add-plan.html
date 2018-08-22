@@ -17,21 +17,21 @@
   <form [formGroup]="formGroup" (ngSubmit)="savePlan(formGroup.value)">
     <ion-item>
       <ion-label>Date</ion-label>
-      <ion-datetime displayFormat="MM/DD/YYYY" formGroupName="date"></ion-datetime>
+      <ion-datetime displayFormat="MM/DD/YYYY" formControlName="date"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label>Title</ion-label>
-      <ion-input name="title" type="text" formControlName="title"></ion-input>
+      <ion-input type="text" name="title"  formControlName="title" required></ion-input>
       <div class="alert" *ngIf="!formGroup.controls['title'].valid
            && formGroup.controls['title'].touched">{{titleAlert}}</div>
     </ion-item>
     <ion-item>
       <ion-label>Plan</ion-label>
-      <ion-input name="content" type="content" formControlName="content"></ion-input>
+      <ion-input name="content" type="text" formControlName="content"></ion-input>
       <div class="alert"
            *ngIf="!formGroup.controls['content'].valid
            && formGroup.controls['content'].touched">{{contentAlert}}</div>
     </ion-item>
-    <button ion-button type="submit" [disabled]="!formGroup.valid" ]>Add Plan</button>
+    <button ion-button type="submit" [disabled]="!formGroup.valid" >Add Plan</button>
   </form>
 </ion-content>
