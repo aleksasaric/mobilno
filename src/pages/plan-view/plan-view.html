@@ -1,0 +1,39 @@
+<!--
+  Generated template for the PlanViewPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>plan-view</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-card>
+  <ion-card-content>
+    <ion-card-title>
+      {{plan.title}}
+    </ion-card-title>
+    <div class="plan-date">{{plan.date}}</div>
+    <hr/>
+    <div>{{plan.content}}</div>
+
+  </ion-card-content>
+</ion-card>
+</ion-content>
+<ion-footer>
+
+  <button ion-button color="primary" block (click)="updatePlan(plan.createDate)">
+    Update Plan
+  </button>
+  <hr>
+  <button ion-button color="danger" block (click)="deletePlan(plan.createDate)">
+    Delete Plan
+  </button>
+
+</ion-footer>

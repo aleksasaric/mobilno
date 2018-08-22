@@ -4,6 +4,7 @@ import { Storage } from "@ionic/storage";
 import {Plan} from "../../models/Plans.model";
 
 
+
 /*
   Generated class for the PlanServiceProvider provider.
 
@@ -13,7 +14,7 @@ import {Plan} from "../../models/Plans.model";
 @Injectable()
 export class PlanServiceProvider {
   private plans: Plan[] = [];
-
+    private plan:Plan;
 
 
   constructor(public storage: Storage) {
@@ -32,6 +33,20 @@ export class PlanServiceProvider {
       )
 
           }
+          getPlan(createDate:number){
+            return this.storage.get('plans').then((plans)=>{
+                this.plan = [...plans].find(r => r.createDate===createDate);
+                return this.plan;
+            })
+          }
 
+          deletePlan(createDate:number){
+
+            this.plans = this.plans.filter((plan)=>{
+                return plan.createDate !== createDate
+            });
+            this.storage.set('plans',this.plans);
+
+          }
     }
 

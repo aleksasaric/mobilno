@@ -6,9 +6,11 @@
 
 <ion-content padding>
     <ion-list>
-        <button ion-item *ngFor="let plan of plans | async">
+        <button ion-item *ngFor="let plan of plans | async" (click)="getPlan(plan.createDate)">
             {{plan.title}}
+
         </button>
     </ion-list>
+
   <button ion-button (click)="addPlan()">Add Plan</button>
 </ion-content>

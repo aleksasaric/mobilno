@@ -14,6 +14,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { PlanServiceProvider } from '../providers/plan-service/plan-service';
 import {IonicStorageModule} from "@ionic/storage";
 import { FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {PlanViewPage} from "../pages/plan-view/plan-view";
 
 @NgModule({
   declarations: [
@@ -22,8 +23,8 @@ import { FormsModule, ReactiveFormsModule} from "@angular/forms";
     ContactPage,
     HomePage,
     TabsPage,
-    AddPlanPage
-
+    AddPlanPage,
+    PlanViewPage
   ],
   imports: [
     BrowserModule,
@@ -39,7 +40,8 @@ import { FormsModule, ReactiveFormsModule} from "@angular/forms";
     ContactPage,
     HomePage,
     TabsPage,
-    AddPlanPage
+    AddPlanPage,
+      PlanViewPage
   ],
   providers: [
     StatusBar,
