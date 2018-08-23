@@ -28,11 +28,11 @@
 </ion-content>
 <ion-footer>
 
-  <button ion-button color="primary" block (click)="updatePlan(plan.createDate)">
+  <button ion-button item-left color="primary"  (click)="updatePlan(plan)">
     Update Plan
   </button>
-  <hr>
-  <button ion-button color="danger" block (click)="deletePlan(plan.createDate)">
+
+  <button ion-button item-right color="danger"  (click)="deletePlan(plan.createDate)">
     Delete Plan
   </button>
 

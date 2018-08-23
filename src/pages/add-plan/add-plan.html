@@ -27,7 +27,7 @@
     </ion-item>
     <ion-item>
       <ion-label>Plan</ion-label>
-      <ion-input name="content" type="text" formControlName="content"></ion-input>
+      <ion-input name="content" type="text" formControlName="content" required></ion-input>
       <div class="alert"
            *ngIf="!formGroup.controls['content'].valid
            && formGroup.controls['content'].touched">{{contentAlert}}</div>

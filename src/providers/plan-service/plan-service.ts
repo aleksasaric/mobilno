@@ -48,5 +48,6 @@ export class PlanServiceProvider {
             this.storage.set('plans',this.plans);
 
           }
+
     }
 
