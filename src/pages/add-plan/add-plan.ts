@@ -6,6 +6,7 @@ import {FormGroup, Validator, FormControl} from "@angular/forms";
 import {PlanViewPage} from "../plan-view/plan-view";
 import {HomePage} from "../home/home";
 
+
 /**
  * Generated class for the AddPlanPage page.
  *
@@ -24,37 +25,51 @@ export class AddPlanPage {
   formGroup: FormGroup;
   plan: Plan;
   date: Date = new Date();
-  title: string = '';
+  titleFrom: string = '';
+  titleTo:string='';
   content: string='';
+  done: boolean;
+  email: string='';
 
   constructor(public navCtrl: NavController,private planService:PlanServiceProvider, public navParams: NavParams) {
         this.val = this.navCtrl.last().name;
         this.plan2 = navParams.data;
       this.formGroup = new FormGroup({
-        title: new FormControl(),
+        titleFrom: new FormControl(),
+          titleTo: new FormControl(),
         content: new FormControl(),
         date: new FormControl()
+
+
       }
     )
   }
   ionViewWillEnter(){
         if  (this.val=="PlanViewPage") {
-            this.formGroup.controls['title'].setValue(this.plan2.title);
+            this.formGroup.controls['titleFrom'].setValue(this.plan2.titleFrom);
+            this.formGroup.controls['titleTo'].setValue(this.plan2.titleTo);
             this.formGroup.controls['date'].setValue(this.plan2.date);
             this.formGroup.controls['content'].setValue(this.plan2.content);
         }
   }
   savePlan(plan:Plan){
+      //update
       if (this.val=="PlanViewPage")
       {
+        this.updatePlan(plan);
 
-          this.planService.deletePlan(this.plan2.createDate);
-          this.planService.savePlan(plan);
-          this.navCtrl.push(HomePage);
       }
+      //save
       else {
           this.planService.savePlan(plan);
           this.navCtrl.pop();
+
       }
+
   }
+    updatePlan(plan:Plan){
+        this.planService.deletePlan(this.plan2.createDate);
+        this.planService.savePlan(plan);
+        this.navCtrl.push(HomePage);
+    }
 }

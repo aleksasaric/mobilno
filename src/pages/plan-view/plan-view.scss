@@ -1,3 +1,25 @@
 page-plan-view {
 
+  .add {
+    background-image: url("../../assets/imgs/pic5.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .cards{
+    text-align: center;
+    background: #D3D3D3;
+
+    color: black;
+  }
+}
+.button1{
+  width: 50%;
+float: left;
+  margin: 0 0px;
+}
+.button2{
+  width: 50%;
+  float: right;
+  margin: 0 0px;
 }

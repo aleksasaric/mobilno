@@ -1,0 +1,159 @@
+<!--
+  Generated template for the WeatherPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Weather</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="weather">
+<ion-grid *ngIf="weather">
+  <ion-row>
+    <ion-col>
+      <h2 class="location">{{weather.city.name + ", "+weather.city.country}}</h2>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <h6 class="prva">Date:</h6>
+    </ion-col>
+    <ion-col>
+      <h6 class="druga">Description:</h6>
+    </ion-col>
+    <ion-col>
+      <h6 class="treca"></h6>
+    </ion-col>
+    <ion-col>
+      <h6 class="cetvrta">Min:</h6>
+    </ion-col>
+    <ion-col>
+      <h6 class="cetvrta">Max:</h6>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <h6 class="date">{{weather.list[0].dt_txt.substring(5,10)}}</h6>
+    </ion-col>
+    <ion-col>
+    <h6 class="desc">{{weather.list[0].weather[0].description}}</h6>
+  </ion-col>
+    <ion-col>
+      <h6 class="icon"><img src="http://openweathermap.org/img/w/{{weather.list[0].weather[0].icon}}.png "></h6>
+    </ion-col>
+    <ion-col>
+      <h6 class="min">{{weather.list[0].main.temp_min}}</h6>
+    </ion-col>
+    <ion-col>
+      <h6 class="max">{{weather.list[0].main.temp_max}}</h6>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <h6 class="date">{{weather.list[8].dt_txt.substring(5,10)}}</h6>
+    </ion-col>
+    <ion-col>
+      <h6 class="desc">{{weather.list[8].weather[0].description}}</h6>
+    </ion-col>
+    <ion-col>
+      <h6 class="icon"><img src="http://openweathermap.org/img/w/{{weather.list[8].weather[0].icon}}.png "></h6>
+    </ion-col>
+    <ion-col>
+      <h6 class="min">{{weather.list[8].main.temp_min}}</h6>
+    </ion-col>
+    <ion-col>
+      <h6 class="max">{{weather.list[8].main.temp_max}}</h6>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <h6 class="date">{{weather.list[16].dt_txt.substring(5,10)}}</h6>
+    </ion-col>
+    <ion-col>
+      <h6 class="desc">{{weather.list[16].weather[0].description}}</h6>
+    </ion-col>
+    <ion-col>
+      <h6 class="icon"><img src="http://openweathermap.org/img/w/{{weather.list[16].weather[0].icon}}.png "></h6>
+    </ion-col>
+    <ion-col>
+      <h6 class="min">{{weather.list[16].main.temp_min}}</h6>
+    </ion-col>
+    <ion-col>
+      <h6 class="max">{{weather.list[16].main.temp_max}}</h6>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <h6 class="date">{{weather.list[24].dt_txt.substring(5,10)}}</h6>
+    </ion-col>
+    <ion-col>
+      <h6 class="desc">{{weather.list[24].weather[0].description}}</h6>
+    </ion-col>
+    <ion-col>
+      <h6 class="icon"><img src="http://openweathermap.org/img/w/{{weather.list[24].weather[0].icon}}.png "></h6>
+    </ion-col>
+    <ion-col>
+      <h6 class="min">{{weather.list[24].main.temp_min}}</h6>
+    </ion-col>
+    <ion-col>
+      <h6 class="max">{{weather.list[24].main.temp_max}}</h6>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <h6 class="date">{{weather.list[32].dt_txt.substring(5,10)}}</h6>
+    </ion-col>
+    <ion-col>
+      <h6 class="desc">{{weather.list[32].weather[0].description}}</h6>
+    </ion-col>
+    <ion-col>
+      <h6 class="icon"><img src="http://openweathermap.org/img/w/{{weather.list[32].weather[0].icon}}.png "></h6>
+    </ion-col>
+    <ion-col>
+      <h6 class="min">{{weather.list[32].main.temp_min}}</h6>
+    </ion-col>
+    <ion-col>
+      <h6 class="max">{{weather.list[32].main.temp_max}}</h6>
+    </ion-col>
+  </ion-row>
+
+</ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col width-100>
+        <ion-list>
+          <form (ngSubmit)="saveForm()">
+            <ion-item>
+            <ion-label fixed>
+              City
+            </ion-label>
+            <ion-input [(ngModel)]="location.city" name ="city" type="text">
+
+            </ion-input>
+          </ion-item>
+            <ion-item>
+              <ion-label fixed>
+                State
+              </ion-label>
+              <ion-input [(ngModel)]="location.state" name ="state" type="text">
+
+              </ion-input>
+            </ion-item>
+            <button ion-button type="submit" block>Change location</button>
+
+          </form>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

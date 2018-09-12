@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController,App } from 'ionic-angular';
 import {AddPlanPage} from '../add-plan/add-plan';
 import {PlanServiceProvider} from "../../providers/plan-service/plan-service";
 import {Plan} from "../../models/Plans.model";
 import {PlanViewPage} from "../plan-view/plan-view";
+import {AngularFireAuth} from "angularfire2/auth";
+import {LoginPage} from "../login/login";
 
 
 @Component({
@@ -13,13 +15,18 @@ import {PlanViewPage} from "../plan-view/plan-view";
 export class HomePage {
     plans: Promise<Plan[]>;
     plan:Plan;
-  constructor(public navCtrl: NavController, private planService:PlanServiceProvider){
-
+    email:string;
+  constructor(private _app: App, private fire: AngularFireAuth,public navCtrl: NavController, private planService:PlanServiceProvider){
+    this.email=this.fire.auth.currentUser.email;
   }
 
     ionViewWillEnter()
     {
+
+
         this.plans = this.getPlans();
+
+
     }
   	addPlan(){
       this.navCtrl.push(AddPlanPage);
@@ -33,4 +40,12 @@ export class HomePage {
           this.navCtrl.push(PlanViewPage,{plan:this.plan})
       })
     }
+    logout(){
+      this.fire.auth.signOut();
+        this._app.getRootNav().setRoot(LoginPage);
+
+
+
+    }
+
 }

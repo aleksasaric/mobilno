@@ -1,16 +1,21 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Router</ion-title>
+    <ion-title>Planner <button class="logout" ion-button (click)="logout()">Logout</button></ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-    <ion-list>
-        <button ion-item *ngFor="let plan of plans | async" (click)="getPlan(plan.createDate)">
-            {{plan.title}}
+<ion-content padding class="add">
+    <button ion-button block (click)="addPlan()">Add Plan</button>
+    <ion-list >
+        <button ion-item  class="listt" *ngFor="let plan of plans | async" (click)="getPlan(plan.createDate)">
+
+            {{plan.titleFrom}}-{{plan.titleTo}}
+                <ion-icon class="icon" ios="ios-checkmark" md="md-checkmark" *ngIf="plan.done"></ion-icon>
+
+
 
         </button>
     </ion-list>
 
-  <button ion-button (click)="addPlan()">Add Plan</button>
+
 </ion-content>
